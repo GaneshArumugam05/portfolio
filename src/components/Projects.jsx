@@ -9,7 +9,7 @@ function Projects() {
 
   return (
     <div className="bg-white py-16 px-8" id="projects">
-      <h2 className="text-3xl font-bold text-center mb-6">Portfolio</h2>
+      <h2 className="text-3xl font-bold text-center mb-6">Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
           <div key={index} className="border p-6 rounded-lg">

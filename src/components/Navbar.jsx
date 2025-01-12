@@ -9,11 +9,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold">My Portfolio</h1>
+            <h1 className="text-2xl font-bold">Ganesh</h1>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {['hero', 'about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
+              {['home', 'about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
                 <Link
                   key={section}
                   to={section}
@@ -64,7 +64,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {['hero', 'about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
+            {['home', 'about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
               <Link
                 key={section}
                 to={section}
