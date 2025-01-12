@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.active {
+    @apply text-amber-400 font-bold; /* Tailwind utility for orange text and bold font */
+  }
+  
+  
