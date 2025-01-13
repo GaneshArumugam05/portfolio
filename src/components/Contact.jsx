@@ -13,14 +13,14 @@ function Contact() {
             <FaPhoneAlt className="mr-2 text-blue-600 text-3xl" /> {/* Phone Icon */}
             <div>
               <p className="text-lg font-semibold">Phone</p>
-              <p className="text-lg text-blue-600">7092773840</p>
+              <a href="tel:+917092773840" className="text-lg text-blue-600">7092773840</a> {/* Make the phone number clickable */}
             </div>
           </div>
           <div className="flex items-center">
             <FaEnvelope className="mr-2 text-blue-600 text-3xl" /> {/* Email Icon */}
             <div>
               <p className="text-lg font-semibold">Email</p>
-              <p className="text-lg text-blue-600">ganesh050801@gmail.com</p>
+              <a href="mailto:ganesh050801@gmail.com" className="text-lg text-blue-600">ganesh050801@gmail.com</a> {/* Make the email address clickable */}
             </div>
           </div>
           <div className="flex items-center">
