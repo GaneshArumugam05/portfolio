@@ -13,7 +13,7 @@ function About() {
       </div>
       <div className="flex justify-center mt-8">
         <a
-          href="/assets/RESUME_GANESH_A_react.pdf" // Correct path from the public folder
+          href="/RESUME_GANESH_A_react.pdf" // Correct path from the public folder
           download="Ganesh_Arumugam_CV.pdf"
           className="text-white font-bold rounded-md bg-blue-600 h-12 w-32 flex items-center justify-center hover:bg-blue-800"
         >

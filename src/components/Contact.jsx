@@ -33,7 +33,7 @@ function Contact() {
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="flex-1 max-w-md mx-auto space-y-4 bg-gray-100 shadow-lg p-8 rounded-lg"> {/* Card Design for Right Side */}
+        <div className="flex-1 max-w-md mx-auto space-y-4 bg-gray-200 shadow-lg p-8 rounded-lg"> {/* Card Design for Right Side */}
           <form className="space-y-4">
             <input 
               type="text" 
@@ -49,7 +49,7 @@ function Contact() {
               placeholder="Message" 
               className="w-full p-3 border rounded-lg h-32 border-gray-800 bg-white placeholder-gray-500" 
             ></textarea>
-            <button type="submit" className="w-full p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-700">Send Message</button>
+            <button type="submit" className="w-full p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Send Message</button>
           </form>
         </div>
       </div>
