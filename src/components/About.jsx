@@ -1,4 +1,3 @@
-// About Component (src/components/About.js)
 import React from 'react';
 import Dp from '../assets/my_Profile/ganesh.png';
 
@@ -13,7 +12,11 @@ function About() {
         </p>
       </div>
       <div className="flex justify-center mt-8">
-        <a href="" download="Ganesh_Arumugam_CV.pdf" className="text-white font-bold rounded-md bg-blue-600 h-12 w-32 flex items-center justify-center hover:bg-blue-800">
+        <a
+          href="/assets/RESUME_GANESH_A_react.pdf" // Correct path from the public folder
+          download="Ganesh_Arumugam_CV.pdf"
+          className="text-white font-bold rounded-md bg-blue-600 h-12 w-32 flex items-center justify-center hover:bg-blue-800"
+        >
           Download CV
         </a>
       </div>
