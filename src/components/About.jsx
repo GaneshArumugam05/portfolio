@@ -1,5 +1,6 @@
 import React from 'react';
 import Dp from '../assets/my_Profile/ganesh.png';
+import resume from '../assets/resume.pdf';
 
 function About() {
   return (
@@ -14,7 +15,7 @@ function About() {
       <div className="flex justify-center mt-8">
         <a
           download="Ganesh_Arumugam_CV.pdf"
-          href="/RESUME_GANESH_A_React.pdf"
+          href={resume}
           className="text-white font-bold rounded-md bg-blue-600 h-12 w-32 flex items-center justify-center hover:bg-blue-800"
         >
           Download CV
