@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
 
 function Contact() {
@@ -9,7 +9,7 @@ function Contact() {
     message: '',
   });
 
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState({ message: '', type: '' }); // Type can be 'success' or 'error'
 
   const handleChange = (e) => {
     setFormData({
@@ -34,11 +34,21 @@ function Contact() {
       )
       .then(
         (response) => {
-          setStatus('Message sent successfully!');
+          setStatus({ message: 'Message sent successfully!', type: 'success' });
           setFormData({ name: '', email: '', message: '' }); // Reset form
+
+          // Clear the status message after 5 seconds
+          setTimeout(() => {
+            setStatus({ message: '', type: '' });
+          }, 5000);
         },
         (error) => {
-          setStatus('Failed to send message. Please try again.');
+          setStatus({ message: 'Failed to send message. Please try again.', type: 'error' });
+
+          // Clear the status message after 5 seconds
+          setTimeout(() => {
+            setStatus({ message: '', type: '' });
+          }, 5000);
         }
       );
   };
@@ -109,7 +119,16 @@ function Contact() {
               Send Message
             </button>
           </form>
-          {status && <p className="text-center mt-4">{status}</p>}
+          {status.message && (
+            <div
+              className={`mt-4 p-4 rounded-lg flex items-center justify-center ${
+                status.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+              }`}
+            >
+              {status.type === 'success' ? <FaCheckCircle className="mr-2" /> : <FaTimesCircle className="mr-2" />}
+              <span>{status.message}</span>
+            </div>
+          )}
         </div>
       </div>
     </div>
