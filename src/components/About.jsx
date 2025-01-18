@@ -1,5 +1,5 @@
 import React from 'react';
-import Dp from '../assets/my_Profile/ganesh.png';
+import Dp from '../assets/my_Profile/portfolioDp.png';
 import resume from '../assets/resume.pdf';
 
 function About() {
