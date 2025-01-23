@@ -34,7 +34,7 @@ function Experience() {
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Experience</h2>
       <ul className="space-y-8">
         {experiences.map((exp, index) => (
-          <li key={index} className="p-6 border rounded-lg bg-white shadow-md">
+          <li key={index} className="p-6 border rounded-lg bg-white shadow-md transform transition duration-300 hover:scale-105">
             <h3 className="text-xl sm:text-2xl font-bold">{exp.role}</h3>
             <p className="text-gray-600 font-medium">{exp.company}</p>
             <p className="text-gray-500 text-sm mb-4">{exp.period}</p>

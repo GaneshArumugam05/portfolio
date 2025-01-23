@@ -12,7 +12,7 @@ function Projects() {
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
-          <div key={index} className="border p-6 rounded-lg">
+          <div key={index} className="border p-6 rounded-lg transform transition hover:scale-105 hover:shadow-xl">
             <h3 className="text-lg sm:text-xl font-bold mb-2">{project.title}</h3>
             <p className="text-gray-700 mb-4">{project.description}</p>
             <a href={project.link} className="text-blue-500 hover:underline">View Project</a>

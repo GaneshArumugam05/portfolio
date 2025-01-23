@@ -24,7 +24,7 @@ function Skills() {
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Skills</h2>
       <div className="flex flex-wrap justify-center gap-6">
         {skills.map((skill, index) => (
-          <div key={index} className="flex flex-col items-center bg-white shadow-md rounded-lg p-4 w-20 sm:w-24 md:w-28">
+          <div key={index} className="flex flex-col items-center bg-white shadow-md rounded-lg p-4 w-20 sm:w-24 md:w-28 transform transition hover:scale-105 hover:shadow-lg">
             <img src={skill.img} alt={`${skill.name} logo`} className="h-10 sm:h-12 md:h-16 mb-2 object-contain" />
             <span className="text-xs sm:text-sm font-medium text-center">{skill.name}</span>
           </div>

@@ -10,7 +10,8 @@ function Home() {
       <div className="text-center md:text-left mt-4 md:mt-0 md:ml-8">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black">Hi, I'm Ganesh Arumugam</h1>
         <h3 className="mt-4 text-sm sm:text-base md:text-lg text-black">A React Frontend Developer</h3>
-        <a href="#projects" className="mt-6 inline-block px-6 py-3 bg-blue-500 rounded-lg hover:bg-blue-700">View My Work</a>
+        <a href="#projects" className="mt-6 inline-block px-6 py-3 bg-blue-500 rounded-lg hover:bg-blue-700">View My Work</a>  
+        {/* transition-transform transform hover:scale-105 duration-300 animate-bounce-on-hover */}
         <div className="flex justify-center md:justify-start space-x-6 mt-8">
           <a href="#" className="text-blue-800 hover:text-blue-600" aria-label="LinkedIn">
             <FaLinkedin size={20} />

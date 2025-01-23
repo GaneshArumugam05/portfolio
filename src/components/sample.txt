@@ -1,0 +1,24 @@
+transition-transform transform hover:scale-105 duration-300 animate-bounce-on-hover
+(view my work button)
+
+
+transition-transform transform hover:scale-105 duration-300 animate-slide-in
+(img)
+
+
+transition-transform transform hover:scale-105 duration-300 animate-bounce-on-hover
+(download cv)
+
+
+transform transition hover:scale-105 hover:shadow-lg
+(skills -index claasname)
+
+
+transform transition hover:scale-105 hover:shadow-xl
+(projects-key -index classname)
+
+
+transform transition duration-300 hover:scale-105
+(experience-key index)
+
+
