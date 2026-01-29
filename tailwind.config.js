@@ -1,29 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,jsx}",
   ],
   theme: {
     extend: {
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+      colors: {
+        background: {
+          light: "#f8fafc",
+          dark: "#0f1418",
         },
-        slideIn: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+        surface: {
+          light: "#ffffff",
+          dark: "#141a1f",
         },
-        bounceOnHover: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-5px)' },
+        primary: "#20b2a6",
+        muted: {
+          light: "#475569",
+          dark: "#7a8491",
+        },
+        border: {
+          light: "#e5e7eb",
+          dark: "#242b32",
         },
       },
-      animation: {
-        'fade-in': 'fadeIn 1.5s ease-out',
-        'slide-in': 'slideIn 1s ease-out',
-        'bounce-on-hover': 'bounceOnHover 0.5s ease-in-out infinite',
+      boxShadow: {
+        glow: "0 0 40px rgba(32,178,166,0.25)",
       },
     },
   },

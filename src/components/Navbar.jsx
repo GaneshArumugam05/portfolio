@@ -1,89 +1,118 @@
-import React, { useState } from 'react';
-import { Link } from 'react-scroll';
+import { useEffect, useState } from "react";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const links = [
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#contact", label: "Contact" },
+];
+
+export default function Navbar() {
+  const { theme, toggleTheme } = useTheme();
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("#about");
+
+  // Scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+
+      links.forEach((link) => {
+        const section = document.querySelector(link.href);
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          setActive(link.href);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-gray-800 text-white fixed w-full z-20 top-0 left-0 shadow">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <h1 className="text-2xl font-bold">Ganesh</h1>
-          </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {['home', 'about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
-                <Link
-                  key={section}
-                  to={section}
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  offset={-70} // Adjusts for fixed navbar height
-                  activeClass="active"
-                  className="cursor-pointer px-3 py-2 rounded-md text-md font-medium hover:bg-gray-700"
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="flex md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-white focus:outline-none"
-            >
-              <svg
-                className="h-6 w-6"
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                {isOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all ${
+        scrolled
+          ? "glass-strong backdrop-blur-lg border-b border-border py-3"
+          : "bg-transparent py-5"
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        
+        {/* Logo */}
+        <a href="#home" className="text-xl font-bold">
+          Ganesh<span className="text-primary">.</span>
+        </a>
 
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {['home', 'about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
-              <Link
-                key={section}
-                to={section}
-                smooth={true}
-                duration={500}
-                spy={true}
-                offset={-70}
-                activeClass="active"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
-                onClick={() => setIsOpen(false)} // Close menu on link click
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`relative text-sm font-medium transition
+                ${
+                  active === link.href
+                    ? "text-primary after:w-full"
+                    : "text-muted-foreground hover:text-primary after:w-0"
+                }
+                after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-primary after:transition-all`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        {/* Actions */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full glass hover:scale-110 transition"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          <button
+            className="md:hidden p-2 rounded-md glass"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      {open && (
+        <div className="md:hidden glass-strong border-t border-border">
+          <div className="flex flex-col px-6 py-6 gap-5">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => {
+                  setActive(link.href);
+                  setOpen(false);
+                }}
+                className={`text-base font-medium transition ${
+                  active === link.href
+                    ? "text-primary"
+                    : "text-muted-foreground"
+                }`}
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </Link>
+                {link.label}
+              </a>
             ))}
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
-};
-
-export default Navbar;
+}

@@ -1,120 +1,252 @@
-import React, { useState, useEffect } from 'react';
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
-import emailjs from 'emailjs-com';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
+import { useState } from "react";
+import emailjs from "@emailjs/browser"; // ✅ Correct package
 
-function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState({ message: '', type: '' });
-  const [isVisible, setIsVisible] = useState(false);
+const contactInfo = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "ganesh050801@gmail.com",
+    href: "mailto:ganesh050801@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 70927 73840",
+    href: "tel:+917092773840",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Chennai, India",
+    href: "#",
+  },
+];
 
-  useEffect(() => {
-    // Trigger the transition once the component is mounted
-    setIsVisible(true);
-  }, []);
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({
+    type: null,
+    message: "",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus({ type: null, message: "" });
 
     emailjs
       .send(
-        'service_v1kqenh', 
-        'template_t5df5v4', 
-        { name: formData.name, email: formData.email, message: formData.message },
-        'pBJ9fSO2R_VtqN9Gt'
+        "service_pf5x82l", // ✅ Your Service ID
+        "template_t5df5v4", // ✅ Your Template ID
+        {
+          from_name: formData.name, // matches {{from_name}}
+          reply_to: formData.email,
+          message: formData.message,
+          to_name: "Ganesh Arumugam", // matches {{to_name}}
+        },
+        "pBJ9fSO2R_VtqN9Gt" // ✅ Your Public Key
       )
       .then(() => {
-        setStatus({ message: 'Message sent successfully!', type: 'success' });
-        setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setStatus({ message: '', type: '' }), 5000);
+        setSubmitStatus({
+          type: "success",
+          message: "Message sent successfully! I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", message: "" });
       })
-      .catch(() => {
-        setStatus({ message: 'Failed to send message. Please try again.', type: 'error' });
-        setTimeout(() => setStatus({ message: '', type: '' }), 5000);
-      });
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        setSubmitStatus({
+          type: "error",
+          message: "Failed to send message. Please try again later.",
+        });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
-    <div className="bg-white py-16 px-12 sm:px-16 md:px-24" id="contact">
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Contact</h2>
-      <div className="flex flex-col md:flex-row justify-center md:justify-between space-y-8 md:space-y-0 md:space-x-8 md:px-28">
-        
-        {/* Contact Info Section */}
-        <div className={`contact-section ${isVisible ? 'visible' : ''} flex-1 space-y-8`}>
-          <div className="flex items-center">
-            <FaPhoneAlt className="mr-2 text-blue-600 text-3xl" />
-            <div>
-              <p className="text-lg font-semibold">Phone</p>
-              <a href="tel:+917092773840" className="text-lg text-blue-600">7092773840</a>
-            </div>
-          </div>
-          <div className="flex items-center">
-            <FaEnvelope className="mr-2 text-blue-600 text-3xl" />
-            <div>
-              <p className="text-lg font-semibold">Email</p>
-              <a href="mailto:ganesh050801@gmail.com" className="text-lg text-blue-600">ganesh050801@gmail.com</a>
-            </div>
-          </div>
-          <div className="flex items-center">
-            <FaMapMarkerAlt className="mr-2 text-blue-600 text-3xl" />
-            <div>
-              <p className="text-lg font-semibold">Location</p>
-              <p className="text-lg text-blue-600">Chennai</p>
-            </div>
-          </div>
+    <section id="contact" className="py-32 relative overflow-hidden">
+      {/* Background Blobs */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade">
+            Get In Touch
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade animation-delay-100 text-secondary-foreground">
+            Let's build{" "}
+            <span className="font-serif italic font-normal text-white">
+              something great.
+            </span>
+          </h2>
+          <p className="text-muted-foreground animate-fade animation-delay-200">
+            Have a project in mind? I'd love to hear about it. Send me a message
+            and let's discuss how we can work together.
+          </p>
         </div>
 
-        {/* Contact Form Section */}
-        <div className={`contact-section ${isVisible ? 'visible' : ''} flex-1 max-w-md mx-auto space-y-4 bg-gray-200 shadow-lg p-8 rounded-lg`}>
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-3 border rounded-lg border-gray-800 bg-white placeholder-gray-500"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full p-3 border rounded-lg border-gray-800 bg-white placeholder-gray-500"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full p-3 border rounded-lg h-32 border-gray-800 bg-white placeholder-gray-500"
-              required
-            ></textarea>
-            <button
-              type="submit"
-              className="w-full p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-            >
-              Send Message
-            </button>
-          </form>
-          {status.message && (
-            <div className={`fade-in ${status.message ? 'visible' : ''} mt-4 p-4 rounded-lg flex items-center justify-center ${
-              status.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-            }`}>
-              {status.type === 'success' ? <FaCheckCircle className="mr-2" /> : <FaTimesCircle className="mr-2" />}
-              <span>{status.message}</span>
+        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {/* Contact Form */}
+          <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade animation-delay-300">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              {/* Name */}
+              <div>
+                <label className="block text-sm font-medium mb-2">Name</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Your name..."
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className="w-full px-4 py-3
+                             bg-surface-light dark:bg-surface-dark
+                             text-foreground-light dark:text-foreground-dark
+                             placeholder:muted-light dark:placeholder:muted-dark
+                             rounded-xl border border-border-light dark:border-border-dark
+                             focus:border-primary focus:ring-1 focus:ring-primary
+                             outline-none transition-all"
+                  disabled={isLoading}
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-medium mb-2">Email</label>
+                <input
+                  type="email"
+                  required
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="w-full px-4 py-3
+                             bg-surface-light dark:bg-surface-dark
+                             text-foreground-light dark:text-foreground-dark
+                             placeholder:muted-light dark:placeholder:muted-dark
+                             rounded-xl border border-border-light dark:border-border-dark
+                             focus:border-primary focus:ring-1 focus:ring-primary
+                             outline-none transition-all"
+                  disabled={isLoading}
+                />
+              </div>
+
+              {/* Message */}
+              <div>
+                <label className="block text-sm font-medium mb-2">Message</label>
+                <textarea
+                  rows={5}
+                  required
+                  placeholder="Your message..."
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  className="w-full px-4 py-3
+                             bg-surface-light dark:bg-surface-dark
+                             text-foreground-light dark:text-foreground-dark
+                             placeholder:muted-light dark:placeholder:muted-dark
+                             rounded-xl border border-border-light dark:border-border-dark
+                             focus:border-primary focus:ring-1 focus:ring-primary
+                             outline-none transition-all resize-none"
+                  disabled={isLoading}
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? "Sending..." : <>
+                  Send Message
+                  <Send className="w-5 h-5" />
+                </>}
+              </button>
+
+              {/* Status Message */}
+              {submitStatus.type && (
+                <div
+                  className={`flex items-center gap-3 p-4 rounded-xl ${
+                    submitStatus.type === "success"
+                      ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                      : "bg-red-500/10 border border-red-500/20 text-red-400"
+                  }`}
+                >
+                  {submitStatus.type === "success" ? (
+                    <CheckCircle className="w-5 h-5" />
+                  ) : (
+                    <AlertCircle className="w-5 h-5" />
+                  )}
+                  <p className="text-sm">{submitStatus.message}</p>
+                </div>
+              )}
+            </form>
+          </div>
+
+          {/* Contact Info */}
+          <div className="space-y-6 animate-fade animation-delay-400">
+            <div className="glass rounded-3xl p-8">
+              <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+              <div className="space-y-4">
+                {contactInfo.map((item, i) => (
+                  <a
+                    key={i}
+                    href={item.href}
+                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface-light dark:hover:bg-surface-dark transition-colors group"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-light dark:text-muted-dark">
+                        {item.label}
+                      </div>
+                      <div className="font-medium text-foreground-light dark:text-foreground-dark">
+                        {item.value}
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
-          )}
+
+            {/* Availability Card */}
+            <div className="glass rounded-3xl p-8 border border-primary/30">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                <span className="font-medium text-foreground-light dark:text-foreground-dark">
+                  Currently Available
+                </span>
+              </div>
+              <p className="text-muted-light dark:text-muted-dark text-sm">
+                Open to frontend roles, freelance projects, and exciting collaborations.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-
-export default Contact;
