@@ -63,9 +63,11 @@ export default function Projects() {
 
                 {/* In Progress Badge */}
                 {project.status === "in-progress" && (
-                  <span className="absolute top-3 right-3 text-xs font-medium
+                  <span
+                    className="absolute top-3 right-3 text-xs font-medium
                                    px-3 py-1 rounded-full
-                                   bg-yellow-500/90 text-black">
+                                   bg-yellow-500/90 text-black"
+                  >
                     In Progress
                   </span>
                 )}
@@ -73,15 +75,13 @@ export default function Projects() {
 
               {/* Content */}
               <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  {project.title}
-                </h3>
+                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
 
                 <p className="text-sm text-muted-light dark:text-muted-dark mb-4">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
@@ -94,17 +94,20 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Actions */}
-              <div className="flex gap-4 mt-2">
+              {/* BUTTON ACTIONS */}
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm
-                             hover:text-primary transition"
+                  className="inline-flex items-center justify-center gap-2 
+                             px-6 py-3 rounded-xl bg-slate-100 dark:text-black
+                             hover:bg-slate-300 dark:hover:bg-slate-400  text-foreground
+                             font-medium text-sm shadow-md hover:shadow-glow
+                             transition-all duration-300"
                 >
                   <Github size={16} />
-                  Code
+                  View Code
                 </a>
 
                 {project.live !== "#" ? (
@@ -112,18 +115,26 @@ export default function Projects() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm
-                               hover:text-primary transition"
+                    className="inline-flex items-center justify-center gap-2 
+                               px-6 py-3 rounded-xl bg-primary/60 dark:bg-primary/60
+                               hover:bg-primary dark:hover:bg-teal-500 hover:text-white text-foreground
+                               font-medium text-sm shadow-md hover:shadow-glow
+                               transition-all duration-300"
                   >
                     <ExternalLink size={16} />
-                    Live
+                    Live Demo
                   </a>
                 ) : (
-                  <span className="inline-flex items-center gap-2 text-sm
-                                   text-muted-light cursor-not-allowed">
+                  <button
+                    disabled
+                    className="inline-flex items-center justify-center gap-2 
+                               px-6 py-3 rounded-xl bg-slate-100/50 dark:bg-slate-800/50 
+                               text-muted-light dark:text-muted-dark text-sm
+                               font-medium cursor-not-allowed"
+                  >
                     <ExternalLink size={16} />
                     Live Soon
-                  </span>
+                  </button>
                 )}
               </div>
             </div>

@@ -21,7 +21,7 @@ const experiences = [
     role: "Frontend Developer Intern",
     company: "ThirdI Tech",
     location: "Chennai",
-    period: "Jul 2024 – Dec 2024",
+    period: "May 2024 – Oct 2024",
     points: [
       "Assisted in building React components and maintaining existing modules.",
       "Improved responsiveness and accessibility across pages.",
@@ -35,7 +35,10 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 sm:py-20 relative overflow-hidden font-sans">
+    <section
+      id="experience"
+      className="py-16 sm:py-20 relative overflow-hidden font-sans"
+    >
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
 
@@ -46,10 +49,14 @@ const Experience = () => {
             Career Journey
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3 mb-4 text-secondary-foreground leading-tight">
-            My Experience <span className="font-serif italic font-normal">speaks volumes.</span>
+            My Experience{" "}
+            <span className="font-serif italic font-normal">
+              speaks volumes.
+            </span>
           </h2>
           <p className="text-muted-foreground leading-relaxed text-sm sm:text-base max-w-2xl mx-auto md:mx-0">
-            A timeline of my professional growth, from intern to frontend developer contributing to real-world projects.
+            A timeline of my professional growth, from intern to frontend
+            developer contributing to real-world projects.
           </p>
         </div>
 
@@ -67,11 +74,15 @@ const Experience = () => {
                 {exp.current && (
                   <div className="absolute -top-2 -right-2 w-5 h-5 bg-primary rounded-full animate-ping shadow-md" />
                 )}
-                <span className="text-xs sm:text-sm text-primary font-medium tracking-wide inline-block px-3 py-1 bg-surface rounded-full">
+                <span className="text-xs sm:text-sm text-primary font-bold tracking-wider inline-block px-3 py-1 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full backdrop-blur-sm border border-primary/40">
                   {exp.period}
                 </span>
-                <h3 className="text-lg sm:text-xl font-semibold mt-3 text-secondary-foreground">{exp.role}</h3>
-                <p className="text-muted-foreground mt-1 font-medium text-sm">{exp.company} · {exp.location}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mt-3 text-secondary-foreground">
+                  {exp.role}
+                </h3>
+                <p className="text-muted-foreground mt-1 font-medium text-sm">
+                  {exp.company} · {exp.location}
+                </p>
 
                 <div className="mt-4 space-y-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   {exp.points.map((point, i) => (
@@ -81,7 +92,10 @@ const Experience = () => {
 
                 <div className="flex flex-wrap gap-2 mt-4 pt-2 border-t border-primary/20">
                   {exp.technologies.map((tech, i) => (
-                    <span key={i} className="px-2 py-1 bg-surface/80 text-xs rounded-full text-muted-foreground">
+                    <span
+                      key={i}
+                      className="text-xs sm:text-xs text-primary font-bold tracking-wider inline-block px-3 py-1 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full backdrop-blur-sm border border-primary/40"
+                    >
                       {tech}
                     </span>
                   ))}
@@ -118,13 +132,17 @@ const Experience = () => {
                   {/* Content Card */}
                   <div
                     className={`flex-1 glass p-6 sm:p-8 rounded-2xl border border-primary/30 hover:border-primary/50 hover:shadow-xl transition-all duration-500 backdrop-blur-md ${
-                      idx % 2 === 0 ? "ml-0 mr-auto max-w-lg" : "ml-auto mr-0 max-w-lg order-last"
+                      idx % 2 === 0
+                        ? "ml-0 mr-auto max-w-lg"
+                        : "ml-auto mr-0 max-w-lg order-last"
                     }`}
                   >
                     <span className="text-xs sm:text-sm text-primary font-bold tracking-wider inline-block px-3 py-1 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full backdrop-blur-sm border border-primary/40">
                       {exp.period}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold mt-3 mb-2 text-secondary-foreground leading-snug">{exp.role}</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold mt-3 mb-2 text-secondary-foreground leading-snug">
+                      {exp.role}
+                    </h3>
                     <p className="text-muted-foreground mb-4 font-medium text-sm opacity-90">
                       {exp.company} · {exp.location}
                     </p>
@@ -139,7 +157,7 @@ const Experience = () => {
                       {exp.technologies.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-gradient-to-r from-surface/60 to-surface/40 backdrop-blur-md text-sm font-medium rounded-full text-muted-foreground border border-primary/30 hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                          className="text-xs sm:text-sm text-primary font-bold tracking-wider inline-block px-3 py-1 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full backdrop-blur-sm border border-primary/40"
                         >
                           {tech}
                         </span>

@@ -17,26 +17,34 @@ import {
   Gauge,
   LayoutDashboard,
   Plug,
+  Ruler, // Pixel Perfect
 } from "lucide-react";
 
-/* Skill icons */
+/* Skill icons - ALL WORKING */
 const skillIcons = {
+  // Frontend Development
   "React.js": Code2,
   "JavaScript (ES6+)": Braces,
   HTML5: Code,
   CSS3: Paintbrush,
   "Tailwind CSS": Layout,
+  "Framer Motion": Sparkles,
 
+  // UI Implementation
   "Responsive Design": Monitor,
   "Figma to Code": Palette,
+  "Pixel Perfect UI": Ruler,
+  "Reusable Component": Layers,
   "Dark / Light Theme": SunMoon,
   "Micro Animations": Sparkles,
 
+  // Tools & Workflow
   "Git & GitHub": GitBranch,
   Vite: Package,
   npm: Package,
   "VS Code": Code,
 
+  // Engineering Practices
   "API Integration": Plug,
   "Role Based Access": ShieldCheck,
   "Dashboard UI": LayoutDashboard,
@@ -48,16 +56,24 @@ const skills = [
   {
     title: "Frontend Development",
     icon: Code,
-    items: ["React.js", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS"],
+    items: [
+      "React.js",
+      "JavaScript (ES6+)",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Framer Motion",
+    ],
   },
   {
-    title: "UI / UX Engineering",
+    title: "UI Implementation",
     icon: Palette,
     items: [
       "Responsive Design",
       "Figma to Code",
+      "Pixel Perfect UI",
+      "Reusable Component",
       "Dark / Light Theme",
-      "Micro Animations",
     ],
   },
   {
@@ -79,7 +95,10 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 bg-background-light dark:bg-background-dark transition-colors duration-500">
+    <section
+      id="skills"
+      className="py-28 bg-background-light dark:bg-background-dark transition-colors duration-500"
+    >
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           className="section-title text-center"
@@ -106,10 +125,12 @@ export default function Skills() {
                 <div className="p-3 bg-primary/20 rounded-full text-primary">
                   <group.icon size={24} />
                 </div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{group.title}</h3>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                  {group.title}
+                </h3>
               </div>
 
-              {/* Skills */}
+              {/* Skills list */}
               <motion.div
                 className="flex flex-wrap gap-3 mt-3"
                 initial="hidden"
@@ -129,7 +150,11 @@ export default function Skills() {
                         hidden: { opacity: 0, y: 20, scale: 0.9 },
                         visible: { opacity: 1, y: 0, scale: 1 },
                       }}
-                      transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 20,
+                      }}
                     >
                       {Icon && <Icon size={14} />}
                       {skill}

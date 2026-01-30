@@ -58,7 +58,7 @@ export default function Contact() {
           message: formData.message,
           to_name: "Ganesh Arumugam", // matches {{to_name}}
         },
-        "pBJ9fSO2R_VtqN9Gt" // ✅ Your Public Key
+        "pBJ9fSO2R_VtqN9Gt", // ✅ Your Public Key
       )
       .then(() => {
         setSubmitStatus({
@@ -93,7 +93,7 @@ export default function Contact() {
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade animation-delay-100 text-secondary-foreground">
             Let's build{" "}
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-serif italic font-normal">
               something great.
             </span>
           </h2>
@@ -113,7 +113,7 @@ export default function Contact() {
                 <input
                   type="text"
                   required
-                  placeholder="Your name..."
+                  placeholder="eg., John Doe"
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -135,7 +135,7 @@ export default function Contact() {
                 <input
                   type="email"
                   required
-                  placeholder="your@email.com"
+                  placeholder="eg., johndoe@email.com"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -153,11 +153,13 @@ export default function Contact() {
 
               {/* Message */}
               <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
+                <label className="block text-sm font-medium mb-2">
+                  Message
+                </label>
                 <textarea
                   rows={5}
                   required
-                  placeholder="Your message..."
+                  placeholder="type your message..."
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
@@ -179,10 +181,14 @@ export default function Contact() {
                 disabled={isLoading}
                 className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isLoading ? "Sending..." : <>
-                  Send Message
-                  <Send className="w-5 h-5" />
-                </>}
+                {isLoading ? (
+                  "Sending..."
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="w-5 h-5" />
+                  </>
+                )}
               </button>
 
               {/* Status Message */}
@@ -208,7 +214,9 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="space-y-6 animate-fade animation-delay-400">
             <div className="glass rounded-3xl p-8">
-              <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+              <h3 className="text-xl font-semibold mb-6">
+                Contact Information
+              </h3>
               <div className="space-y-4">
                 {contactInfo.map((item, i) => (
                   <a
@@ -241,7 +249,8 @@ export default function Contact() {
                 </span>
               </div>
               <p className="text-muted-light dark:text-muted-dark text-sm">
-                Open to frontend roles, freelance projects, and exciting collaborations.
+                Open to frontend roles, freelance projects, and exciting
+                collaborations.
               </p>
             </div>
           </div>

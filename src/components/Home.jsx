@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Download, Github, Linkedin, ArrowRight } from "lucide-react";
-import profileImg from "../assets/my_Profile/GaneshPorfolioImg1.jpeg";
+import profileImg from "../assets/my_Profile/GaneshPorfolioImg1.png";
 import resume from "../assets/Ganesh_A_resume_2026.pdf";
 
 export default function Home() {
@@ -34,31 +34,45 @@ export default function Home() {
           className="space-y-6"
         >
           <motion.span
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary font-medium"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass 
+              text-lg lg:text-xl xl:text-2xl text-primary font-mono"
           >
             React Frontend Developer
           </motion.span>
 
           <motion.h1
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-            className="text-5xl md:text-6xl font-extrabold leading-tight"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="text-2xl md:text-4xl font-extrabold leading-tight"
           >
             Hi, I’m <span className="text-primary">Ganesh Arumugam</span>
           </motion.h1>
 
           <motion.p
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
             className="text-muted-light dark:text-muted-dark max-w-xl text-lg sm:text-xl leading-relaxed"
           >
             Frontend Developer with <strong>1.5 years</strong> of experience
             building scalable, responsive, and high-performance web applications
-            using <strong>React.js</strong>, <strong>Tailwind CSS</strong>, and modern JavaScript.
+            using <strong>React.js</strong>, <strong>Tailwind CSS</strong>, and
+            modern JavaScript.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
             className="flex flex-wrap gap-4 mt-4"
           >
             <motion.a
@@ -83,7 +97,10 @@ export default function Home() {
 
           {/* Social Links */}
           <motion.div
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
             className="flex gap-4 mt-4"
           >
             <motion.a
