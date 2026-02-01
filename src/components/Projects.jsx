@@ -3,19 +3,10 @@ import { ExternalLink, Github } from "lucide-react";
 // Local asset imports
 import DashboardImg from "../assets/projects_logo/dashboard_thumbnail.png";
 import FoodRecipeImg from "../assets/projects_logo/foodrecipe_thumbnail.png";
-import EcommerceImg from "../assets/projects_logo/ropurifier_thumbnail.png";
+import GymImg from "../assets/projects_logo/Gymlandingpage_thumbnail01.png";
+import EcommerceImg from "../assets/projects_logo/ROpurifier_thumbnail.png";
 
 const projects = [
-  {
-    title: "Admin Dashboard Template",
-    description:
-      "A fully responsive admin dashboard with charts, KPIs, role-based navigation, and modern UI built using React and Tailwind CSS.",
-    tech: ["React", "Tailwind CSS", "Recharts", "Vite"],
-    github: "https://github.com/GaneshArumugam05/dashboard",
-    live: "https://ganesharumugam05.github.io/dashboard/",
-    thumbnail: DashboardImg,
-    status: "completed",
-  },
   {
     title: "Food Recipe App",
     description:
@@ -26,6 +17,29 @@ const projects = [
     thumbnail: FoodRecipeImg,
     status: "completed",
   },
+
+  {
+    title: "Admin Dashboard Template",
+    description:
+      "A fully responsive admin dashboard with charts, KPIs, role-based navigation, and modern UI built using React and Tailwind CSS.",
+    tech: ["React", "Tailwind CSS", "Recharts", "Vite"],
+    github: "https://github.com/GaneshArumugam05/dashboard",
+    live: "https://ganesharumugam05.github.io/dashboard/",
+    thumbnail: DashboardImg,
+    status: "completed",
+  },
+
+  {
+    title: "Gym Landing Page",
+    description:
+      "Modern single-page gym website with smooth animations, responsive sections, and high-conversion UI. Built as a marketing-focused landing page with Framer Motion animations.",
+    tech: ["React", "Tailwind CSS", "Framer Motion"],
+    github: "https://github.com/GaneshArumugam05/gym-landing-page",
+    live: "https://ganesharumugam05.github.io/gym-landing-page/",
+    thumbnail: GymImg,
+    status: "completed",
+  },
+
   {
     title: "E-Commerce Website",
     description:
