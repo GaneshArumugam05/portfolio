@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Download, Github, Linkedin, ArrowRight } from "lucide-react";
-import profileImg from "../assets/my_Profile/GaneshPorfolioImg1.png";
+import profileImg from "../assets/my_Profile/GaneshPorfolioImg1.webp";
 import resume from "../assets/Ganesh_A_resume_2026.pdf";
 
 export default function Home() {
