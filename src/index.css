@@ -2,57 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
+/* ===============================
+   BASE STYLES
+=============================== */
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adjust based on your navbar height */
   }
 
   body {
-    @apply bg-background-light text-gray-900 dark:bg-background-dark dark:text-gray-100 transition-colors duration-500;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
+    @apply bg-background-light text-foreground-light 
+           dark:bg-background-dark dark:text-foreground-dark 
+           transition-colors duration-500;
+  }
+
+  /* Smooth text rendering for better performance */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Reusable components */
+/* ===============================
+   REUSABLE COMPONENTS
+=============================== */
 @layer components {
+  /* Glassmorphism Cards */
   .glass {
     @apply backdrop-blur-xl border rounded-2xl
-    bg-white/70 border-border-light
-    dark:bg-surface-dark/70 dark:border-border-dark;
+           bg-white/70 border-border-light
+           dark:bg-surface-dark/70 dark:border-border-dark;
   }
 
   .glass-strong {
     @apply backdrop-blur-2xl border rounded-2xl
-    bg-white/90 border-border-light
-    dark:bg-surface-dark/90 dark:border-border-dark;
+           bg-white/90 border-border-light
+           dark:bg-surface-dark/90 dark:border-border-dark;
   }
 
+  /* Section Title */
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-center mb-12;
+    @apply text-3xl md:text-4xl font-bold 
+           text-center mb-12 tracking-tight;
   }
 }
 
-/* Animated Border Button */
-.animated-border-path {
-  animation: drawBorder 2s linear infinite;
-}
-
-@keyframes drawBorder {
-  from {
-    stroke-dashoffset: 400;
-  }
-  to {
-    stroke-dashoffset: -550;
-  }
-}
-
-
-/* Animations */
+/* ===============================
+   ANIMATIONS
+=============================== */
 @layer utilities {
+  /* Fade In Animation */
   .animate-fade {
     animation: fade 0.8s ease-out both;
   }
+
+  .animation-delay-100 { animation-delay: 0.1s; }
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-300 { animation-delay: 0.3s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
 
   @keyframes fade {
     from {
@@ -63,6 +72,27 @@
       opacity: 1;
       transform: translateY(0);
     }
-    
+  }
+
+  /* Optimize animated elements for compositing */
+  .will-change-transform {
+    will-change: transform, opacity;
+  }
+}
+
+/* ===============================
+   SVG ANIMATED BORDER
+=============================== */
+.animated-border-path {
+  animation: drawBorder 2s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+@keyframes drawBorder {
+  from {
+    stroke-dashoffset: 400;
+  }
+  to {
+    stroke-dashoffset: -550;
   }
 }

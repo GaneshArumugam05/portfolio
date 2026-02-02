@@ -1,11 +1,24 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// vite.config.js
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base:"/portfolio",
+  base: "/portfolio",
   build: {
-    outDir: 'build', // Ensure the output directory is set to 'build'
+    outDir: "build",
+    sourcemap: false,
+    minify: "esbuild",
+    target: "esnext",
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) return "vendor";
+        },
+      },
+    },
   },
-})
+  optimizeDeps: {
+    include: ["react", "react-dom", "lucide-react", "framer-motion", "@emailjs/browser"],
+  },
+});

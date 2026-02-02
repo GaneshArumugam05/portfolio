@@ -25,6 +25,10 @@ export default {
           light: "#e5e7eb",
           dark: "#242b32",
         },
+        foreground: {
+          light: "#0f1418",
+          dark: "#f8fafc",
+        },
       },
       boxShadow: {
         glow: "0 0 40px rgba(32,178,166,0.25)",

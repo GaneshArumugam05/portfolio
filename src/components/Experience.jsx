@@ -60,7 +60,7 @@ const Experience = () => {
           </p>
         </div>
 
-        {/* Mobile/Tablet Cards */}
+        {/* Mobile Timeline */}
         <div className="lg:hidden space-y-12">
           {experiences.map((exp, idx) => (
             <motion.div
@@ -70,7 +70,7 @@ const Experience = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
             >
-              <div className="glass p-6 sm:p-8 rounded-2xl border border-primary/30 hover:border-primary/50 hover:shadow-xl transition-all duration-500 mx-auto max-w-md">
+              <div className="glass p-6 sm:p-8 rounded-2xl border border-primary/30 hover:border-primary/50 hover:shadow-xl transition-all duration-500 mx-auto max-w-md relative">
                 {exp.current && (
                   <div className="absolute -top-2 -right-2 w-5 h-5 bg-primary rounded-full animate-ping shadow-md" />
                 )}
@@ -105,36 +105,35 @@ const Experience = () => {
           ))}
         </div>
 
-        {/* Desktop Timeline (lg+) */}
-        <div className="hidden lg:block">
-          <div className="relative">
-            {/* Central Timeline Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-primary/90 via-primary/50 to-primary/20 -translate-x-1/2 shadow-[0_0_20px_rgba(32,178,166,0.7)] z-10" />
+        {/* Desktop Timeline */}
+        <div className="hidden lg:block relative">
+          {/* Central Line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-[4px] bg-gradient-to-b from-primary/90 via-primary/50 to-primary/20 -translate-x-1/2 z-0" />
 
-            {/* Timeline Items */}
-            <div className="space-y-16">
-              {experiences.map((exp, idx) => (
+          <div className="space-y-20">
+            {experiences.map((exp, idx) => {
+              const isLeft = idx % 2 === 0;
+
+              return (
                 <motion.div
                   key={idx}
-                  className="relative flex items-start gap-8"
-                  initial={{ opacity: 0, x: idx % 2 === 0 ? -40 : 40 }}
+                  className="relative flex items-start justify-between"
+                  initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: idx * 0.2 }}
                 >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 top-12 w-5 h-5 bg-primary rounded-full ring-6 ring-background/80 shadow-md -translate-x-1/2 flex items-center justify-center">
+                  {/* Dot */}
+                  <div className="absolute left-1/2 top-6 w-6 h-6 bg-primary rounded-full shadow-md -translate-x-1/2 z-10 flex items-center justify-center">
                     {exp.current && (
-                      <span className="w-2 h-2 bg-primary rounded-full animate-ping absolute opacity-75" />
+                      <span className="w-2 h-2 bg-primary rounded-full animate-ping absolute opacity-70" />
                     )}
                   </div>
 
-                  {/* Content Card */}
+                  {/* Card */}
                   <div
-                    className={`flex-1 glass p-6 sm:p-8 rounded-2xl border border-primary/30 hover:border-primary/50 hover:shadow-xl transition-all duration-500 backdrop-blur-md ${
-                      idx % 2 === 0
-                        ? "ml-0 mr-auto max-w-lg"
-                        : "ml-auto mr-0 max-w-lg order-last"
+                    className={`glass p-6 sm:p-8 rounded-2xl border border-primary/30 hover:border-primary/50 hover:shadow-xl transition-all duration-500 backdrop-blur-md max-w-lg w-[45%] ${
+                      isLeft ? "mr-auto text-left" : "ml-auto text-right"
                     }`}
                   >
                     <span className="text-xs sm:text-sm text-primary font-bold tracking-wider inline-block px-3 py-1 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full backdrop-blur-sm border border-primary/40">
@@ -147,7 +146,7 @@ const Experience = () => {
                       {exp.company} · {exp.location}
                     </p>
 
-                    <div className="space-y-2 text-sm text-muted-foreground leading-relaxed mb-6">
+                    <div className="space-y-2 text-sm text-muted-foreground leading-relaxed mb-4">
                       {exp.points.map((point, i) => (
                         <p key={i}>{point}</p>
                       ))}
@@ -165,8 +164,8 @@ const Experience = () => {
                     </div>
                   </div>
                 </motion.div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>
