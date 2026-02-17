@@ -13,15 +13,11 @@ function App() {
   return (
     <div className="min-h-screen overflow-x-hidden">
 
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
 
       <main>
-
-        {/* SEO Main Heading */}
-        <h1 className="sr-only">
-          Ganesh Arumugam React Frontend Developer Portfolio
-        </h1>
-
         <Home />
 
         <Suspense fallback={<div className="h-32" />}>
@@ -31,10 +27,11 @@ function App() {
           <Experience />
           <Contact />
         </Suspense>
-
       </main>
 
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
 
     </div>
   );

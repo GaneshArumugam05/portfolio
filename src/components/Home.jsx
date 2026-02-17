@@ -9,14 +9,17 @@ export default function Home() {
   return (
     <section
       id="home"
+      role="region"
+      aria-label="Homepage introduction"
       className="relative min-h-screen flex items-center pt-32 
       bg-background-light dark:bg-background-dark 
       transition-colors duration-500 overflow-hidden"
     >
-      {/* Background Glow (Optimized) */}
+      {/* Background Glow */}
       {!reduceMotion && (
         <>
           <motion.div
+            aria-hidden="true"
             className="absolute top-1/4 left-1/2 w-[480px] h-[480px] 
             bg-primary/10 rounded-full blur-3xl 
             -translate-x-1/2 -translate-y-1/2 z-0"
@@ -25,6 +28,7 @@ export default function Home() {
             transition={{ duration: 6, repeat: Infinity, repeatType: "mirror" }}
           />
           <motion.div
+            aria-hidden="true"
             className="absolute bottom-0 right-1/3 w-[380px] h-[380px] 
             bg-teal-300/10 rounded-full blur-3xl z-0"
             initial={{ scale: 1, opacity: 0.5 }}
@@ -34,7 +38,8 @@ export default function Home() {
         </>
       )}
 
-      <div className="max-w-7xl mx-auto px-6 
+      <div
+        className="max-w-7xl mx-auto px-6 
         grid lg:grid-cols-2 gap-16 items-center 
         relative z-10"
       >
@@ -49,6 +54,7 @@ export default function Home() {
           }}
           className="space-y-6"
         >
+          {/* ROLE TAG */}
           <motion.span
             variants={{
               hidden: { opacity: 0, y: 16 },
@@ -61,6 +67,7 @@ export default function Home() {
             React Frontend Developer
           </motion.span>
 
+          {/* MAIN SEO TITLE */}
           <motion.h1
             variants={{
               hidden: { opacity: 0, y: 20 },
@@ -69,10 +76,10 @@ export default function Home() {
             className="text-2xl md:text-4xl 
             font-extrabold leading-tight"
           >
-            Hi, I’m{" "}
-            <span className="text-primary">Ganesh Arumugam</span>
+            Ganesh Arumugam — React Frontend Developer
           </motion.h1>
 
+          {/* DESCRIPTION */}
           <motion.p
             variants={{
               hidden: { opacity: 0, y: 20 },
@@ -81,10 +88,11 @@ export default function Home() {
             className="text-muted-light dark:text-muted-dark 
             max-w-xl text-lg leading-relaxed"
           >
-            Frontend Developer with <strong>1.5+ years</strong> of experience
-            building scalable, responsive, and high-performance web applications
-            using <strong>React.js</strong>, <strong>Tailwind CSS</strong>, and
-            modern JavaScript.
+            Hi, I’m <strong>Ganesh Arumugam</strong>, a Frontend Developer with{" "}
+            <strong>1.5+ years</strong> of experience building scalable,
+            responsive, and high-performance web applications using{" "}
+            <strong>React.js</strong>, <strong>Tailwind CSS</strong>, and modern
+            JavaScript.
           </motion.p>
 
           {/* CTA BUTTONS */}
@@ -97,6 +105,7 @@ export default function Home() {
           >
             <a
               href="#projects"
+              aria-label="View my projects"
               className="inline-flex items-center gap-2 px-6 py-3 
               rounded-full bg-primary text-white 
               shadow-lg hover:shadow-xl transition"
@@ -107,6 +116,7 @@ export default function Home() {
             <a
               href={resume}
               download
+              aria-label="Download Ganesh Arumugam resume"
               className="inline-flex items-center gap-2 px-6 py-3 
               rounded-full glass shadow-md 
               hover:shadow-lg transition"
@@ -127,24 +137,25 @@ export default function Home() {
               href="https://linkedin.com/in/ganesharumugam05"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full glass 
-              hover:text-primary transition"
+              aria-label="Ganesh Arumugam LinkedIn Profile"
+              className="p-3 rounded-full glass hover:text-primary transition"
             >
               <Linkedin size={20} />
             </a>
+
             <a
               href="https://github.com/GaneshArumugam05"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full glass 
-              hover:text-primary transition"
+              aria-label="Ganesh Arumugam GitHub Profile"
+              className="p-3 rounded-full glass hover:text-primary transition"
             >
               <Github size={20} />
             </a>
           </motion.div>
         </motion.div>
 
-        {/* RIGHT IMAGE (LCP OPTIMIZED) */}
+        {/* RIGHT IMAGE */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -154,6 +165,7 @@ export default function Home() {
         >
           {!reduceMotion && (
             <motion.div
+              aria-hidden="true"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
               className="absolute inset-0 
@@ -163,7 +175,7 @@ export default function Home() {
 
           <img
             src={profileImg}
-            alt="Ganesh Arumugam - React Frontend Developer"
+            alt="Ganesh Arumugam React Frontend Developer portrait"
             width="420"
             height="520"
             loading="eager"
