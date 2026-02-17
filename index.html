@@ -1,28 +1,74 @@
 <!doctype html>
-<html lang="en" class="">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/portfolio/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ganesh Arumugam - React Frontend Developer Portfolio">
-    <meta name="theme-color" content="#20b2aa">
-    <link rel="preload" href="/fonts/Inter-VariableFont.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" as="image" href="/assets/hero.webp">
-    <title>Ganesh Arumugam | Portfolio</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
 
-    <script>
-      if (localStorage.theme === 'dark' || 
-          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    </script>
-    <script type="module" crossorigin src="/portfolio/assets/index-C7lobnb-.js"></script>
-    <link rel="modulepreload" crossorigin href="/portfolio/assets/vendor-D4HXPkoc.js">
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-C0fk9mzQ.css">
-  </head>
-  <body class="bg-background-light dark:bg-background-dark text-foreground transition-colors duration-500">
-    <div id="root"></div>
-  </body>
+  <!-- PRIMARY SEO -->
+  <title>Ganesh Arumugam | React Frontend Developer Portfolio</title>
+  <meta name="description" content="Official portfolio of Ganesh Arumugam — React Frontend Developer specializing in React.js, JavaScript, UI systems, dashboards and modern web apps.">
+  <meta name="keywords" content="Ganesh Arumugam, React Developer, Frontend Developer India, JavaScript Developer Portfolio">
+  <meta name="author" content="Ganesh Arumugam">
+  <meta name="robots" content="index, follow">
+
+  <!-- MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CANONICAL (IMPORTANT FOR GOOGLE) -->
+  <link rel="canonical" href="https://ganesharumugam05.github.io/portfolio/" />
+
+  <!-- THEME -->
+  <meta name="theme-color" content="#20b2aa">
+
+  <!-- SOCIAL PREVIEW -->
+  <meta property="og:title" content="Ganesh Arumugam | Portfolio">
+  <meta property="og:description" content="React Frontend Developer Portfolio">
+  <meta property="og:url" content="https://ganesharumugam05.github.io/portfolio/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ganesharumugam05.github.io/portfolio/preview.png">
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- PERFORMANCE -->
+  <link rel="preload" href="/fonts/Inter-VariableFont.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="/assets/hero.webp">
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/svg+xml" href="/portfolio/vite.svg" />
+
+  <!-- STRUCTURED DATA (RANK FOR YOUR NAME) -->
+  <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "Person",
+   "name": "Ganesh Arumugam",
+   "url": "https://ganesharumugam05.github.io/portfolio/",
+   "jobTitle": "Frontend Developer",
+   "sameAs": [
+     "https://github.com/ganesharumugam05"
+   ],
+   "knowsAbout": ["React","JavaScript","Frontend Development","UI Development"]
+  }
+  </script>
+
+  <!-- DARK MODE -->
+  <script>
+    if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+  <script type="module" crossorigin src="/portfolio/assets/index-BT51Z6cK.js"></script>
+  <link rel="modulepreload" crossorigin href="/portfolio/assets/vendor-D4HXPkoc.js">
+  <link rel="stylesheet" crossorigin href="/portfolio/assets/index-C0fk9mzQ.css">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-foreground transition-colors duration-500">
+  <div id="root"></div>
+</body>
 </html>
