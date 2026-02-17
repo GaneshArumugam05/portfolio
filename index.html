@@ -1,26 +1,52 @@
 <!doctype html>
-<html lang="en" class="">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ganesh Arumugam - React Frontend Developer Portfolio">
-    <meta name="theme-color" content="#20b2aa">
-    <link rel="preload" href="/fonts/Inter-VariableFont.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" as="image" href="/assets/hero.webp">
-    <title>Ganesh Arumugam | Portfolio</title>
+<html lang="en">
+<head>
 
-    <script>
-      if (localStorage.theme === 'dark' || 
-          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    </script>
-  </head>
-  <body class="bg-background-light dark:bg-background-dark text-foreground transition-colors duration-500">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Ganesh Arumugam" />
+
+<title>Ganesh Arumugam | React Frontend Developer Portfolio</title>
+
+<meta name="description" content="Ganesh Arumugam is a React Frontend Developer specializing in modern UI, responsive web apps, and real-world projects built using React.js and Tailwind CSS." />
+
+<meta name="keywords" content="Ganesh Arumugam, React Developer, Frontend Developer, JavaScript Developer, Portfolio" />
+
+<link rel="canonical" href="https://ganesharumugam05.github.io/portfolio/" />
+
+<meta name="theme-color" content="#20b2aa">
+
+<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+<link rel="preload" href="/fonts/Inter-VariableFont.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="/assets/hero.webp">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Person",
+ "name": "Ganesh Arumugam",
+ "url": "https://ganesharumugam05.github.io/portfolio/",
+ "jobTitle": "React Frontend Developer"
+}
+</script>
+
+<script>
+if (
+localStorage.theme === 'dark' ||
+(!('theme' in localStorage) &&
+window.matchMedia('(prefers-color-scheme: dark)').matches)
+){
+document.documentElement.classList.add('dark');
+}else{
+document.documentElement.classList.remove('dark');
+}
+</script>
+
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-foreground transition-colors duration-500">
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

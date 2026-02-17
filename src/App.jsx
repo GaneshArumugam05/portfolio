@@ -12,18 +12,30 @@ const Contact = lazy(() => import("./components/Contact"));
 function App() {
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <Navbar />
-      <Home />
 
-      <Suspense fallback={<div className="h-32" />}>
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact />
-      </Suspense>
+      <Navbar />
+
+      <main>
+
+        {/* SEO Main Heading */}
+        <h1 className="sr-only">
+          Ganesh Arumugam React Frontend Developer Portfolio
+        </h1>
+
+        <Home />
+
+        <Suspense fallback={<div className="h-32" />}>
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Contact />
+        </Suspense>
+
+      </main>
 
       <Footer />
+
     </div>
   );
 }
