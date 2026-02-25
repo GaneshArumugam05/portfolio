@@ -133,8 +133,8 @@ const Experience = () => {
                   {/* Card */}
                   <div
                     className={`glass p-6 sm:p-8 rounded-2xl border border-primary/30 hover:border-primary/50 hover:shadow-xl transition-all duration-500 backdrop-blur-md max-w-lg w-[45%] ${
-                      isLeft ? "mr-auto text-left" : "ml-auto text-right"
-                    }`}
+  isLeft ? "mr-auto text-left" : "ml-auto text-left"
+}`}
                   >
                     <span className="text-xs sm:text-sm text-primary font-bold tracking-wider inline-block px-3 py-1 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full backdrop-blur-sm border border-primary/40">
                       {exp.period}

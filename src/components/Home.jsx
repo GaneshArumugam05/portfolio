@@ -6,60 +6,36 @@ import resume from "../assets/Ganesh_A_resume_2026.pdf";
 export default function Home() {
   const reduceMotion = useReducedMotion();
 
+  const fadeUp = {
+    hidden: { opacity: 0, y: reduceMotion ? 0 : 40 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <section
       id="home"
       role="region"
-      aria-label="Homepage introduction"
+      aria-label="Ganesh Arumugam homepage introduction"
       className="relative min-h-screen flex items-center pt-32 
       bg-background-light dark:bg-background-dark 
       transition-colors duration-500 overflow-hidden"
     >
-      {/* Background Glow */}
-      {!reduceMotion && (
-        <>
-          <motion.div
-            aria-hidden="true"
-            className="absolute top-1/4 left-1/2 w-[480px] h-[480px] 
-            bg-primary/10 rounded-full blur-3xl 
-            -translate-x-1/2 -translate-y-1/2 z-0"
-            initial={{ scale: 1, opacity: 0.6 }}
-            animate={{ scale: 1.1, opacity: 0.8 }}
-            transition={{ duration: 6, repeat: Infinity, repeatType: "mirror" }}
-          />
-          <motion.div
-            aria-hidden="true"
-            className="absolute bottom-0 right-1/3 w-[380px] h-[380px] 
-            bg-teal-300/10 rounded-full blur-3xl z-0"
-            initial={{ scale: 1, opacity: 0.5 }}
-            animate={{ scale: 1.08, opacity: 0.7 }}
-            transition={{ duration: 8, repeat: Infinity, repeatType: "mirror" }}
-          />
-        </>
-      )}
-
       <div
         className="max-w-7xl mx-auto px-6 
         grid lg:grid-cols-2 gap-16 items-center 
         relative z-10"
       >
+
         {/* LEFT CONTENT */}
         <motion.div
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.12 } },
-          }}
+          animate="visible"
+          transition={{ staggerChildren: 0.15 }}
           className="space-y-6"
         >
-          {/* ROLE TAG */}
+
           <motion.span
-            variants={{
-              hidden: { opacity: 0, y: 16 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            variants={fadeUp}
             className="inline-flex items-center gap-2 px-4 py-2 
             rounded-full glass text-primary 
             font-mono text-base sm:text-lg"
@@ -67,124 +43,112 @@ export default function Home() {
             React Frontend Developer
           </motion.span>
 
-          {/* MAIN SEO TITLE */}
+          {/* MAIN H1 */}
           <motion.h1
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="text-2xl md:text-4xl 
-            font-extrabold leading-tight"
+            variants={fadeUp}
+            className="text-2xl md:text-4xl font-extrabold leading-tight"
           >
-            Ganesh Arumugam — React Frontend Developer
+            Ganesh Arumugam | React Frontend Developer
           </motion.h1>
 
-          {/* DESCRIPTION */}
           <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            variants={fadeUp}
             className="text-muted-light dark:text-muted-dark 
             max-w-xl text-lg leading-relaxed"
           >
-            Hi, I’m <strong>Ganesh Arumugam</strong>, a Frontend Developer with{" "}
-            <strong>1.5+ years</strong> of experience building scalable,
-            responsive, and high-performance web applications using{" "}
-            <strong>React.js</strong>, <strong>Tailwind CSS</strong>, and modern
-            JavaScript.
+            Hi, I’m <strong>Ganesh Arumugam</strong>, a professional React Frontend Developer 
+            with 1.5+ years of experience building scalable, responsive, 
+            and high-performance web applications using React.js, Tailwind CSS, 
+            and modern JavaScript.
           </motion.p>
 
-          {/* CTA BUTTONS */}
+          {/* Hidden SEO Boost */}
+          <p className="sr-only">
+            Ganesh Arumugam is a React Frontend Developer specializing in 
+            React.js, JavaScript, Tailwind CSS, and modern UI development.
+          </p>
+
+          {/* CTA Buttons */}
           <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            variants={fadeUp}
             className="flex flex-wrap gap-4 pt-4"
           >
-            <a
+            <motion.a
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
               href="#projects"
-              aria-label="View my projects"
               className="inline-flex items-center gap-2 px-6 py-3 
-              rounded-full bg-primary text-white 
-              shadow-lg hover:shadow-xl transition"
+              rounded-full bg-primary text-white shadow-lg 
+              transition-all duration-300"
             >
               View Projects <ArrowRight size={18} />
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
               href={resume}
               download
-              aria-label="Download Ganesh Arumugam resume"
               className="inline-flex items-center gap-2 px-6 py-3 
               rounded-full glass shadow-md 
-              hover:shadow-lg transition"
+              transition-all duration-300"
             >
               <Download size={18} /> Download CV
-            </a>
+            </motion.a>
           </motion.div>
 
-          {/* SOCIAL LINKS */}
+          {/* Social Icons */}
           <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="flex gap-4 pt-2"
+            variants={fadeUp}
+            className="flex gap-5 pt-2"
           >
-            <a
-              href="https://linkedin.com/in/ganesharumugam05"
+            <motion.a
+              whileHover={{ scale: 1.2, y: -4 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              href="https://www.linkedin.com/in/ganesharumugam05/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Ganesh Arumugam LinkedIn Profile"
-              className="p-3 rounded-full glass hover:text-primary transition"
+              aria-label="Ganesh Arumugam LinkedIn"
+              className="p-3 rounded-full glass hover:text-primary 
+              transition-colors duration-300"
             >
               <Linkedin size={20} />
-            </a>
+            </motion.a>
 
-            <a
-              href="https://github.com/GaneshArumugam05"
+            <motion.a
+              whileHover={{ scale: 1.2, y: -4 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              href="https://github.com/ganesharumugam05"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Ganesh Arumugam GitHub Profile"
-              className="p-3 rounded-full glass hover:text-primary transition"
+              aria-label="Ganesh Arumugam GitHub"
+              className="p-3 rounded-full glass hover:text-primary 
+              transition-colors duration-300"
             >
               <Github size={20} />
-            </a>
+            </motion.a>
           </motion.div>
         </motion.div>
 
         {/* RIGHT IMAGE */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
           className="relative flex justify-center items-center"
         >
-          {!reduceMotion && (
-            <motion.div
-              aria-hidden="true"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute inset-0 
-              bg-primary/20 blur-3xl rounded-full"
-            />
-          )}
-
-          <img
+          <motion.img
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.3 }}
             src={profileImg}
             alt="Ganesh Arumugam React Frontend Developer portrait"
             width="420"
             height="520"
             loading="eager"
-            decoding="async"
-            fetchpriority="high"
-            className="relative z-10 max-w-sm 
-            rounded-3xl shadow-glow"
+            className="relative z-10 max-w-sm rounded-3xl shadow-glow"
           />
         </motion.div>
+
       </div>
     </section>
   );

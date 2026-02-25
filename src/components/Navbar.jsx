@@ -14,26 +14,40 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("#about");
+  const [active, setActive] = useState("");
 
-  // Scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
+
+      const scrollPosition = window.scrollY + 200; 
+      // 200px offset for fixed navbar + better detection
+
+      let currentSection = "";
 
       links.forEach((link) => {
         const section = document.querySelector(link.href);
         if (!section) return;
 
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom >= 120) {
-          setActive(link.href);
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
+          currentSection = link.href;
         }
       });
+
+      if (currentSection) {
+        setActive(currentSection);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    handleScroll(); // run once
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -45,7 +59,7 @@ export default function Navbar() {
           : "bg-transparent py-5"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <nav className="max-w-8xl mx-auto px-6 flex items-center justify-between">
         
         {/* Logo */}
         <a href="#home" className="text-xl font-bold">
@@ -104,7 +118,7 @@ export default function Navbar() {
                 className={`text-base font-medium transition ${
                   active === link.href
                     ? "text-primary"
-                    : "text-muted-foreground"
+                    : "text-muted-foreground hover:text-primary"
                 }`}
               >
                 {link.label}
