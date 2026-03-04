@@ -5,12 +5,12 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
 
-  // 🔥 IMPORTANT: Must have trailing slash for GitHub Pages
-  base: "/portfolio/",
+  // ✅ IMPORTANT for Vercel (NOT GitHub Pages)
+  base: "/",
 
   build: {
-    outDir: "dist",          // Use default dist (recommended for Vite)
-    sourcemap: false,        // Disable source maps in production
+    outDir: "dist",
+    sourcemap: false,
     minify: "esbuild",
     target: "esnext",
 

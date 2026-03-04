@@ -17,39 +17,35 @@
   <meta name="author" content="Ganesh Arumugam">
   <meta name="robots" content="index, follow, max-image-preview:large">
 
-  <!-- CANONICAL -->
-  <link rel="canonical" href="https://ganesharumugam05.github.io/portfolio/" />
+  <!-- ✅ IMPORTANT: UPDATE THIS AFTER VERCEL DEPLOY -->
+  <link rel="canonical" href="https://your-vercel-domain.vercel.app/" />
 
-  <!-- LANGUAGE -->
   <meta http-equiv="content-language" content="en">
-
-  <!-- THEME COLOR -->
   <meta name="theme-color" content="#20b2aa">
 
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ganesh Arumugam | React Frontend Developer">
   <meta property="og:description" content="Official portfolio of Ganesh Arumugam — React Frontend Developer specialized in modern UI systems and scalable web apps.">
-  <meta property="og:url" content="https://ganesharumugam05.github.io/portfolio/">
-  <meta property="og:image" content="https://ganesharumugam05.github.io/portfolio/preview.png">
+  <meta property="og:url" content="https://your-vercel-domain.vercel.app/">
+  <meta property="og:image" content="/preview.png">
   <meta property="og:site_name" content="Ganesh Arumugam Portfolio">
 
-  <!-- TWITTER CARD -->
+  <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ganesh Arumugam | React Frontend Developer">
   <meta name="twitter:description" content="Official portfolio of Ganesh Arumugam — React Frontend Developer.">
-  <meta name="twitter:image" content="https://ganesharumugam05.github.io/portfolio/preview.png">
+  <meta name="twitter:image" content="/preview.png">
 
-  <!-- PERFORMANCE PRELOAD -->
-  <link rel="preload" href="/portfolio/fonts/Inter-VariableFont.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="/portfolio/assets/hero.webp">
+  <!-- PERFORMANCE -->
+  <link rel="preload" href="/fonts/Inter-VariableFont.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="/assets/hero.webp">
 
-  <!--  PROPER FAVICON SETUP -->
-  <!-- Make sure favicon.png is inside public/ folder -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/portfolio/favicon.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="/portfolio/favicon.png?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="/portfolio/favicon.png?v=2">
-  <link rel="shortcut icon" href="/portfolio/favicon.png?v=2">
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.png">
 
   <!-- STRUCTURED DATA -->
   <script type="application/ld+json">
@@ -57,13 +53,13 @@
    "@context": "https://schema.org",
    "@type": "Person",
    "name": "Ganesh Arumugam",
-   "url": "https://ganesharumugam05.github.io/portfolio/",
-   "image": "https://ganesharumugam05.github.io/portfolio/preview.png",
+   "url": "https://your-vercel-domain.vercel.app/",
+   "image": "/preview.png",
    "email": "mailto:ganesh050801@gmail.com",
    "jobTitle": "React Frontend Developer",
    "description": "React Frontend Developer specializing in modern web applications and UI systems.",
    "sameAs": [
-     "https://github.com/ganesharumugam05",
+     "https://github.com/GaneshArumugam05",
      "https://www.linkedin.com/in/ganesharumugam05/"
    ],
    "knowsAbout": [
@@ -76,22 +72,9 @@
   }
   </script>
 
-  <!-- DARK MODE INIT -->
-  <script>
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  </script>
-
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-foreground transition-colors duration-500">
+<body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
