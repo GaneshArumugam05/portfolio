@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ganesharumugam05.github.io/portfolio/sitemap.xml
+Sitemap: https://portfolio-u46l.vercel.app/sitemap.xml
