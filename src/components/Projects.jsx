@@ -1,9 +1,9 @@
 import { ExternalLink, Github } from "lucide-react";
 
 /* ⚠️ IMPORTANT:
-   Convert thumbnails to .webp for best Lighthouse score */
-import DashboardImg from "../assets/projects_logo/dashboard_thumbnail.webp";
-import FoodRecipeImg from "../assets/projects_logo/foodrecipe_thumbnail.webp";
+   /* WebP thumbnails */
+import DashboardImg from "../assets/projects_logo/Dashboard_thumbnail.webp";
+import FoodRecipeImg from "../assets/projects_logo/FoodRecipe_thumbnail.webp";
 import GymImg from "../assets/projects_logo/Gymlandingpage_thumbnail01.webp";
 import EcommerceImg from "../assets/projects_logo/ROpurifier_thumbnail.webp";
 
