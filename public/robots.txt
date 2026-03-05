@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio-jet-eight-89.vercel.app/sitemap.xml
+Sitemap: https://portfolio-ashen-rho-rixbfcfhss.vercel.app/sitemap.xml

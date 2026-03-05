@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 
-// Lazy-loaded components for better performance
 const About = lazy(() => import("./components/About"));
 const Skills = lazy(() => import("./components/Skills"));
 const Projects = lazy(() => import("./components/Projects"));
@@ -19,7 +18,6 @@ function App() {
 
       <main>
         <Home />
-
         <Suspense fallback={<div className="h-32" />}>
           <About />
           <Skills />

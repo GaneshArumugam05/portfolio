@@ -11,7 +11,7 @@ const links = [
 ];
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme(); // ✅ Theme hook
+  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
@@ -19,8 +19,8 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
-      const scrollPosition = window.scrollY + 200;
 
+      const scrollPosition = window.scrollY + 200;
       let currentSection = "";
       links.forEach((link) => {
         const section = document.querySelector(link.href);
@@ -34,13 +34,11 @@ export default function Navbar() {
           currentSection = link.href;
         }
       });
-
       if (currentSection) setActive(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // initial run
-
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -53,12 +51,10 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-8xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
         <a href="#home" className="text-xl font-bold">
           Ganesh<span className="text-primary">.</span>
         </a>
 
-        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
@@ -77,7 +73,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Theme & Mobile Menu */}
         <div className="flex items-center gap-3">
           <button
             onClick={toggleTheme}
@@ -95,7 +90,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       {open && (
         <div className="md:hidden glass-strong border-t border-border">
           <div className="flex flex-col px-6 py-6 gap-5">
