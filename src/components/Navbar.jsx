@@ -11,7 +11,7 @@ const links = [
 ];
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme(); // ✅ Theme hook
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
@@ -19,19 +19,14 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
-
-      const scrollPosition = window.scrollY + 200; 
-      // 200px offset for fixed navbar + better detection
+      const scrollPosition = window.scrollY + 200;
 
       let currentSection = "";
-
       links.forEach((link) => {
         const section = document.querySelector(link.href);
         if (!section) return;
-
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
-
         if (
           scrollPosition >= sectionTop &&
           scrollPosition < sectionTop + sectionHeight
@@ -40,13 +35,11 @@ export default function Navbar() {
         }
       });
 
-      if (currentSection) {
-        setActive(currentSection);
-      }
+      if (currentSection) setActive(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // run once
+    handleScroll(); // initial run
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -60,13 +53,12 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-8xl mx-auto px-6 flex items-center justify-between">
-        
         {/* Logo */}
         <a href="#home" className="text-xl font-bold">
           Ganesh<span className="text-primary">.</span>
         </a>
 
-        {/* Desktop Nav */}
+        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
@@ -85,7 +77,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Actions */}
+        {/* Theme & Mobile Menu */}
         <div className="flex items-center gap-3">
           <button
             onClick={toggleTheme}

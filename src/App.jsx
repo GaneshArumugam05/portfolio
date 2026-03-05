@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 
+// Lazy-loaded components for better performance
 const About = lazy(() => import("./components/About"));
 const Skills = lazy(() => import("./components/Skills"));
 const Projects = lazy(() => import("./components/Projects"));
@@ -12,16 +13,25 @@ const Contact = lazy(() => import("./components/Contact"));
 function App() {
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <Navbar />
-      <Home />
-      <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact />
-      </Suspense>
-      <Footer />
+      <header>
+        <Navbar />
+      </header>
+
+      <main>
+        <Home />
+
+        <Suspense fallback={<div className="h-32" />}>
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Contact />
+        </Suspense>
+      </main>
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
