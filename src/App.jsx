@@ -20,7 +20,7 @@ function App() {
       <main>
         <Home />
 
-        <Suspense fallback={<div className="h-32" />}>
+        <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
           <About />
           <Skills />
           <Projects />
