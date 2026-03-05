@@ -12,27 +12,16 @@ const Contact = lazy(() => import("./components/Contact"));
 function App() {
   return (
     <div className="min-h-screen overflow-x-hidden">
-
-      <header>
-        <Navbar />
-      </header>
-
-      <main>
-        <Home />
-
-        <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Contact />
-        </Suspense>
-      </main>
-
-      <footer>
-        <Footer />
-      </footer>
-
+      <Navbar />
+      <Home />
+      <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
+      </Suspense>
+      <Footer />
     </div>
   );
 }
