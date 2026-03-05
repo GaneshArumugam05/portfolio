@@ -43,7 +43,6 @@ const skillIcons = {
   "Performance Optimization": Gauge,
 };
 
-/* Skills data */
 const skills = [
   {
     title: "Frontend Development",
@@ -91,59 +90,63 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-28 bg-background-light dark:bg-background-dark transition-colors"
+      className="py-24 bg-background-light dark:bg-background-dark transition-colors"
     >
-      <div className="max-w-6xl mx-auto px-6">
-        {/* TITLE */}
+      <div className="max-w-7xl mx-auto px-6">
+
         <motion.h2
           className="section-title text-center"
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
         >
           Skills
         </motion.h2>
 
-        {/* GRID */}
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {skills.map((group, index) => (
             <motion.div
               key={group.title}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.45,
+                duration: 0.4,
                 delay: reduceMotion ? 0 : index * 0.08,
               }}
-              viewport={{ once: true, margin: "-80px" }}
-              className="glass-strong p-6 rounded-2xl shadow-lg 
-              transition-transform hover:-translate-y-1"
+              viewport={{ once: true }}
+              className="glass-strong p-6 rounded-2xl shadow-lg
+              transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              {/* ICON + TITLE */}
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-primary/20 rounded-full text-primary">
-                  <group.icon size={22} />
+              <div className="flex items-center gap-3 mb-5">
+                <div className="p-3 rounded-lg bg-primary/15 text-primary">
+                  <group.icon size={20} />
                 </div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+
+                <h3 className="text-lg font-semibold">
                   {group.title}
                 </h3>
               </div>
 
-              {/* SKILLS LIST */}
-              <div className="flex flex-wrap gap-3 mt-3">
+              <div className="flex flex-wrap gap-2">
                 {group.items.map((skill) => {
                   const Icon = skillIcons[skill];
+
                   return (
                     <span
                       key={skill}
-                      className="flex items-center gap-2 px-3 py-1.5 
-                      rounded-full bg-muted/30 text-foreground 
-                      border border-border text-sm 
-                      hover:bg-primary hover:text-white 
-                      transition-colors duration-300"
+                      className="
+                      flex items-center gap-2
+                      px-3 py-1.5
+                      rounded-full
+                      text-xs
+                      bg-secondary/40
+                      border border-border
+                      hover:bg-primary hover:text-white
+                      transition
+                      "
                     >
-                      {Icon && <Icon size={14} />}
+                      {Icon && <Icon size={13} />}
                       {skill}
                     </span>
                   );

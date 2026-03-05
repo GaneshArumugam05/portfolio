@@ -6,7 +6,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-28 bg-background overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* SECTION HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

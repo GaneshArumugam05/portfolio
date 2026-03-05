@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <footer className="relative border-t border-border bg-background text-foreground">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      <div className="max-w-7xl mx-auto px-6 py-14 flex flex-col md:flex-row items-center justify-between gap-10">
+      <div className="max-w-8xl mx-auto px-6 py-14 flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Brand */}
         <div className="text-center md:text-left">
           <a href="#home" className="text-2xl font-bold tracking-tight hover:text-primary transition">Ganesh<span className="text-primary">.</span></a>
