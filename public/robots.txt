@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio-ashen-rho-rixbfcfhss.vercel.app/sitemap.xml
+Sitemap: https://ganesh-frontend-dev.vercel.app/sitemap.xml

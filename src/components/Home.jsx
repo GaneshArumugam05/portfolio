@@ -31,7 +31,7 @@ export default function Home() {
         />
         <link
           rel="canonical"
-          href="https://portfolio-ashen-rho-rixbfcfhss.vercel.app/"
+          href="https://ganesh-frontend-dev.vercel.app/"
         />
       </Helmet>
 
