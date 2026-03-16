@@ -1,4 +1,3 @@
-// src/components/Footer.jsx
 import { memo } from "react";
 import { Github, Linkedin, ArrowUpRight } from "lucide-react";
 

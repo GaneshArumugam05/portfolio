@@ -1,6 +1,5 @@
 import { ExternalLink, Github } from "lucide-react";
 
-/* ⚠️ IMPORTANT:
    /* WebP thumbnails */
 import DashboardImg from "../assets/projects_logo/Dashboard_thumbnail.webp";
 import FoodRecipeImg from "../assets/projects_logo/FoodRecipe_thumbnail.webp";

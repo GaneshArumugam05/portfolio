@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Download, Github, Linkedin, ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import profileImg from "../assets/my_Profile/GaneshPorfolioImg1.webp";
-import resume from "../assets/Ganesh_A_resume_2026.pdf";
+import resume from "../assets/assets/Ganesh_ReactDev.pdf";
 
 export default function Home() {
   const reduceMotion = useReducedMotion();
@@ -56,7 +56,7 @@ export default function Home() {
              gap-12 lg:gap-20 xl:gap-24
              items-center justify-items-center lg:justify-items-center">
           
-          {/* LEFT CONTENT - CENTERED EVERYWHERE */}
+          {/* LEFT CONTENT  */}
           <motion.div
             initial="hidden"
             animate="visible"

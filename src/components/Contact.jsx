@@ -1,4 +1,3 @@
-// src/components/Contact.jsx
 import { memo, useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
