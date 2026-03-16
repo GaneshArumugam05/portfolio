@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Download, Github, Linkedin, ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import profileImg from "../assets/my_Profile/GaneshPorfolioImg1.webp";
-import resume from "../assets/assets/Ganesh_ReactDev.pdf";
+import resume from "../assets/Ganesh_ReactDev.pdf";
 
 export default function Home() {
   const reduceMotion = useReducedMotion();
